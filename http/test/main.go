@@ -12,12 +12,9 @@ import (
 )
 
 func main() {
-	payload, _ := json.Marshal(map[string]string{
-		"janus":       "ping",
-		"transaction": "123",
-	})
+	payload, _ := json.Marshal(map[string]string{})
 
-	req, _ := http.NewRequest("POST", "http://localhost:7088/admin", bytes.NewReader(payload))
+	req, _ := http.NewRequest("POST", "http://localhost:7088", bytes.NewReader(payload))
 
 	agent := pollerHttp.Agent(req, 1, 1)
 
